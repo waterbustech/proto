@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "sub-packages/utils/ping.proto";
+
 package auth; 
 
 message VerifyTokenRequest {
@@ -12,5 +14,6 @@ message VerifyTokenResponse {
 }
 
 service AuthService {
+  rpc ping(PingPayload) returns (PingPayload) {}
   rpc verifyToken(VerifyTokenRequest) returns (VerifyTokenResponse);
 }

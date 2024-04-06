@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "sub-packages/utils/ping.proto";
+
 package meeting; 
 
 message LeaveRoomRequest {
@@ -12,5 +14,6 @@ message LeaveRoomResponse {
 }
 
 service MeetingService {
+  rpc ping(PingPayload) returns (PingPayload) {}
   rpc leaveRoom(LeaveRoomRequest) returns (LeaveRoomResponse);
 }

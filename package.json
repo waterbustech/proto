@@ -10,6 +10,15 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "proto-compile": "protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./src/interfaces/packages ./src/packages/*.proto --proto_path=./src/packages --ts_proto_opt=returnObservable=true --ts_proto_opt=outputClientImpl=false --ts_proto_opt=exportCommonSymbols=false --ts_proto_opt=outputEncodeMethods=false --ts_proto_opt=outputJsonMethods=false --ts_proto_opt=outputPartialMethods=false --ts_proto_opt=snakeToCamel=false --experimental_allow_proto3_optional=true",
+    "export": "bash export-script.sh src/interfaces/packages",
+    "build": "rm -rf dist src/interfaces && mkdir src/interfaces/packages && npm run proto-compile && npm run export",
+    "build:dev": "tsc",
+    "postbuild": "cp -r src/packages dist/packages && cp package*.json dist && cd dist && npm ci --production",
+    "prepublishOnly": "npm pkg delete scripts",
+    "deploy-local": "bash deploy.sh"
+  },
   "dependencies": {
     "@grpc/grpc-js": "^1.9.3",
     "rxjs": "^7.8.1",
