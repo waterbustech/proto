@@ -20,7 +20,7 @@ message MessageResponse {
   bool isSucceed = 1;
 }
 
-service AuthService {
+service ChatService {
   rpc ping(PingPayload) returns (PingPayload) {}
   rpc sendMessage(MessageRequest) returns (MessageResponse);
   rpc updateMessage(MessageRequest) returns (MessageResponse);
