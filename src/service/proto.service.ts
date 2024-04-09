@@ -3,6 +3,7 @@ import * as path from 'path';
 export enum EPackage {
   AUTH = 'auth',
   MEETING = 'meeting',
+  CHAT = 'chat',
 }
 
 export const getProtoPath = (serviceName: EPackage) => {
