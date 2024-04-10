@@ -1,6 +1,7 @@
 syntax = "proto3";
 
 import "sub-packages/utils/ping.proto";
+import "sub-packages/chats/user.proto";
 
 package meeting; 
 
@@ -13,7 +14,17 @@ message LeaveRoomResponse {
   bool succeed = 1;
 }
 
+message GetParticipantRequest {
+  string participantId = 1;
+}
+
+message GetParticipantResponse {
+  int64 id = 1;
+  User user = 2;
+}
+
 service MeetingService {
   rpc ping(PingPayload) returns (PingPayload) {}
   rpc leaveRoom(LeaveRoomRequest) returns (LeaveRoomResponse);
+  rpc getParticipantById(GetParticipantRequest) returns (GetParticipantResponse);
 }
