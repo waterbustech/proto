@@ -13,7 +13,28 @@ message VerifyTokenResponse {
   string userId = 2;
 }
 
+message CreateCCURequest {
+  int32 userId = 1;
+  string podName = 2;
+  string socketId = 3;
+}
+
+message RemoveCCURequest {
+  string socketId = 1;
+}
+
+message ShutDownPodRequest {
+  string podName = 1;
+}
+
+message StatusResponse {
+  bool succeed = 1;
+}
+
 service AuthService {
   rpc ping(PingPayload) returns (PingPayload) {}
   rpc verifyToken(VerifyTokenRequest) returns (VerifyTokenResponse);
+  rpc createCCU(CreateCCURequest) returns (StatusResponse);
+  rpc removeCCU(RemoveCCURequest) returns (StatusResponse);
+  rpc shutDownPod(ShutDownPodRequest) returns (StatusResponse);
 }

@@ -17,7 +17,7 @@ message MessageRequest {
 }
 
 message MessageResponse {
-  bool isSucceed = 1;
+  bool succeed = 1;
 }
 
 service ChatService {
