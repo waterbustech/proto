@@ -16,6 +16,7 @@ message LeaveRoomResponse {
 
 message GetParticipantRequest {
   string participantId = 1;
+  string socketId = 2;
 }
 
 message GetParticipantResponse {
