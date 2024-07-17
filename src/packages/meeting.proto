@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "sub-packages/utils/ping.proto";
 import "sub-packages/chats/user.proto";
+import "sub-packages/users/ccu.proto";
 
 package meeting; 
 
@@ -22,6 +23,7 @@ message GetParticipantRequest {
 message GetParticipantResponse {
   int32 id = 1;
   User user = 2;
+  CCU ccu = 3;
 }
 
 service MeetingService {

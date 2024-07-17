@@ -14,6 +14,7 @@ message MessageRequest {
     int32 meeting = 6;
     int32 createdAt = 7;
     int32 updatedAt = 8;
+    repeated string ccus = 9;
 }
 
 message MessageResponse {

@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message CCU {
+    int32 id = 1;
+    string podName = 2;
+    string socketId = 3;
+}
