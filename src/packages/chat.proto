@@ -12,8 +12,8 @@ message MessageRequest {
     int32 status = 4;
     User createdBy = 5;
     int32 meeting = 6;
-    int32 createdAt = 7;
-    int32 updatedAt = 8;
+    string createdAt = 7;
+    string updatedAt = 8;
     repeated string ccus = 9;
 }
 
