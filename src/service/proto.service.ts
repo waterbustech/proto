@@ -4,6 +4,8 @@ export enum EPackage {
   AUTH = 'auth',
   MEETING = 'meeting',
   CHAT = 'chat',
+  RECORD = 'recordtrack',
+  WHITEBOARD = 'whiteboard',
 }
 
 export const getProtoPath = (serviceName: EPackage) => {
