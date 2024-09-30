@@ -2,6 +2,8 @@ syntax = "proto3";
 
 import "sub-packages/utils/ping.proto";
 
+package recordtrack; 
+
 message StartRecordRequest {
     int32 userId = 1;
     int32 meetingId = 2;

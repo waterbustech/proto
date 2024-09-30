@@ -3,6 +3,8 @@ syntax = "proto3";
 import "sub-packages/utils/ping.proto";
 import "sub-packages/meeting/paint.proto";
 
+package whiteboard; 
+
 message GetWhiteBoardRequest {
     int32 meetingId = 1;
 }
