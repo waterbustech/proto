@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+import "sub-packages/utils/ping.proto";
+import "sub-packages/meeting/paint.proto";
+
+message GetWhiteBoardRequest {
+    int32 meetingId = 1;
+}
+
+message UpdateWhiteBoardRequest {
+    int32 meetingId = 1;
+    repeated PaintModel paints = 2;
+}
+
+message WhiteBoardResponse {
+    bool succeed = 1;
+}
+
+service WhiteBoardService {
+    rpc ping(PingPayload) returns (PingPayload) {}
+    rpc getBoard(GetWhiteBoardRequest) returns (WhiteBoardResponse) {}
+    rpc updateBoard(UpdateWhiteBoardRequest) returns (WhiteBoardResponse) {}
+}

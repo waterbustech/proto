@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+message PaintModel {
+  string color = 1;
+  repeated Offset offsets = 2;
+  float width = 3;
+}
+
+message Offset {
+  float dx = 1;
+  float dy = 2;
+}
