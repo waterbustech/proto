@@ -15,6 +15,7 @@ message StopRecordRequest {
 
 message RecordResponse {
     bool succeed = 1;
+    int32 recordId = 2;
 }
 
 service RecordService {
