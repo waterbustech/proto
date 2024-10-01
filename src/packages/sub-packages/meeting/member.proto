@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "sub-packages/chats/user.proto";
+
+message Member {
+    int32 id = 1;
+    User user = 2;
+    int32 role = 3;
+    int32 status = 4;
+}
