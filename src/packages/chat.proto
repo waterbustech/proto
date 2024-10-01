@@ -2,6 +2,8 @@ syntax = "proto3";
 
 import "sub-packages/utils/ping.proto";
 import "sub-packages/chats/user.proto";
+import "sub-packages/meeting/room.proto";
+import "sub-packages/meeting/member.proto";
 
 package chat; 
 
@@ -21,9 +23,22 @@ message MessageResponse {
   bool succeed = 1;
 }
 
+message NewMemberJoinedRequest {
+  int32 meetingId = 1;
+  Member member = 2;
+  repeated string ccus = 3;
+}
+
+message NewInvitationRequest {
+  Room room = 1;
+  repeated string ccus = 2;
+}
+
 service ChatService {
   rpc ping(PingPayload) returns (PingPayload) {}
   rpc sendMessage(MessageRequest) returns (MessageResponse);
   rpc updateMessage(MessageRequest) returns (MessageResponse);
   rpc deleteMessage(MessageRequest) returns (MessageResponse);
+  rpc newMemberJoined(NewMemberJoinedRequest) returns (MessageResponse);
+  rpc newInvitation(NewInvitationRequest) returns (MessageResponse);
 }
