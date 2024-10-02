@@ -12,7 +12,6 @@ message StartRecordRequest {
 message StopRecordRequest {
     int32 recordId = 1;
     repeated string urlToVideos = 2;
-    repeated string urlToAudios = 3;
 }
 
 message RecordResponse {
